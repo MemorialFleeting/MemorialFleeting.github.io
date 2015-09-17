@@ -22,21 +22,23 @@ window.onload = function(){
 	//导航选项卡
 	for(var i=0;i<icorpLi.length;i++){
 		icorpLi[i].index = i;
-		icorpLi[i].onclick = function(){
-			for(var j=0;j<icorpLi.length;j++){
-				icorpLi[j].className ="";
-				iLi.children[j].style.display ="none";
-			}
-			this.className ="activeCl";
-			//console.log(this.index,iLi);
-			iLi.children[this.index].style.display ="block";
+		icorpLi[i].addEventListener('click',icorpLiclick, false);
+	}
+	function icorpLiclick(){
+		for(var j=0;j<icorpLi.length;j++){
+			icorpLi[j].className ="";
+			iLi.children[j].style.display ="none";
 		}
+		this.className ="activeCl";
+		iLi.children[this.index].style.display ="block";
 	}
 	//点击公司名称
 	for(var i=0;i<iName.length;i++){
 		iName[i].index =i;
-		iName[i].onclick = function(){
-			for(var j=0;j<icorpLi.length;j++){
+		iName[i].addEventListener('click',iNameclick, false);
+	}
+	function iNameclick(){
+		for(var j=0;j<icorpLi.length;j++){
 				icorpLi[j].className ="";
 				iLi.children[j].style.display ="none";
 			}
@@ -50,7 +52,6 @@ window.onload = function(){
 			iLi.children[0].style.display ="block";
 			icorpLi[0].className ="activeCl";
 			huadong();
-		}
 	}
 	//滑动事件
 	function huadong(){
@@ -79,15 +80,15 @@ window.onload = function(){
 	}
 	//函数调用
 	huadong();
-	
-	
 	//进入展示区
-	Oside.onclick = function(){
+	Oside.addEventListener('click', Osideclick, false)
+	//返回首页
+	Oexit.addEventListener('click', Oexitclick, false)
+	function Osideclick(){
 		Omain.style.display ="none";
 		Ohide.style.display ="block";
 	}
-	//返回首页
-	Oexit.onclick = function(){
+	function Oexitclick(){
 		Omain.style.display ="block";
 		Ohide.style.display ="none";
 	}
