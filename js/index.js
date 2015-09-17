@@ -20,18 +20,18 @@ window.onload = function(){
 	var iUl =tag(Ooffside,"ul"); //ul列表
 	var iLi =iUl[0];
 	//进入展示区
-	Oside.addEventListener('click', Osideclick, false);
+	Oside.addEventListener('touchstart', Osideclick, false);
 	//返回首页
-	Oexit.addEventListener('click', Oexitclick, false);
+	Oexit.addEventListener('touchstart', Oexitclick, false);
 	//导航选项卡
 	for(var i=0;i<icorpLi.length;i++){
 		icorpLi[i].index = i;
-		icorpLi[i].addEventListener('click',icorpLiclick, false);
+		icorpLi[i].addEventListener('touchstart',icorpLiclick, false);
 	}
 	//点击公司名称
 	for(var i=0;i<iName.length;i++){
 		iName[i].index =i;
-		iName[i].addEventListener('click',iNameclick, false);
+		iName[i].addEventListener('touchstart',iNameclick, false);
 	}
 	//滑动事件
 	function huadong(){
