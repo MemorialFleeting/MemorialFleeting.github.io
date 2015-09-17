@@ -19,39 +19,19 @@ window.onload = function(){
 	var Ooffside = id("offside");
 	var iUl =tag(Ooffside,"ul"); //ul列表
 	var iLi =iUl[0];
+	//进入展示区
+	Oside.addEventListener('click', Osideclick, false);
+	//返回首页
+	Oexit.addEventListener('click', Oexitclick, false);
 	//导航选项卡
 	for(var i=0;i<icorpLi.length;i++){
 		icorpLi[i].index = i;
 		icorpLi[i].addEventListener('click',icorpLiclick, false);
 	}
-	function icorpLiclick(){
-		for(var j=0;j<icorpLi.length;j++){
-			icorpLi[j].className ="";
-			iLi.children[j].style.display ="none";
-		}
-		this.className ="activeCl";
-		iLi.children[this.index].style.display ="block";
-	}
 	//点击公司名称
 	for(var i=0;i<iName.length;i++){
 		iName[i].index =i;
 		iName[i].addEventListener('click',iNameclick, false);
-	}
-	function iNameclick(){
-		for(var j=0;j<icorpLi.length;j++){
-				icorpLi[j].className ="";
-				iLi.children[j].style.display ="none";
-			}
-			for(var j=0;j<iName.length;j++){
-				iName[j].className ="";
-				iUl[j].style.display ="none";
-			}
-			this.className ="activeL";
-			iUl[this.index].style.display ="block";
-			iLi = iUl[this.index];
-			iLi.children[0].style.display ="block";
-			icorpLi[0].className ="activeCl";
-			huadong();
 	}
 	//滑动事件
 	function huadong(){
@@ -80,10 +60,6 @@ window.onload = function(){
 	}
 	//函数调用
 	huadong();
-	//进入展示区
-	Oside.addEventListener('click', Osideclick, false)
-	//返回首页
-	Oexit.addEventListener('click', Oexitclick, false)
 	function Osideclick(){
 		Omain.style.display ="none";
 		Ohide.style.display ="block";
@@ -91,5 +67,29 @@ window.onload = function(){
 	function Oexitclick(){
 		Omain.style.display ="block";
 		Ohide.style.display ="none";
+	}
+	function iNameclick(){
+		for(var j=0;j<icorpLi.length;j++){
+				icorpLi[j].className ="";
+				iLi.children[j].style.display ="none";
+			}
+			for(var j=0;j<iName.length;j++){
+				iName[j].className ="";
+				iUl[j].style.display ="none";
+			}
+			this.className ="activeL";
+			iUl[this.index].style.display ="block";
+			iLi = iUl[this.index];
+			iLi.children[0].style.display ="block";
+			icorpLi[0].className ="activeCl";
+			huadong();
+	}
+	function icorpLiclick(){
+		for(var j=0;j<icorpLi.length;j++){
+			icorpLi[j].className ="";
+			iLi.children[j].style.display ="none";
+		}
+		this.className ="activeCl";
+		iLi.children[this.index].style.display ="block";
 	}
 }
